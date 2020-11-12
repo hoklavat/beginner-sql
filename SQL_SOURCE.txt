@@ -1,0 +1,9 @@
+*** STRUCTURED QUERY LANGUAGE ***
+
+[SOFTWARE]
+- SQL Server: PostgreSQL (https://www.postgresql.org/)
+- Graphical User Interface: PGAdmin (https://www.pgadmin.org/)
+- Sample Database: dvdrental.tar
+
+[SOURCE LIST]
+01-Select
