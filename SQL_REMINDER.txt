@@ -3,7 +3,7 @@
 [DATABASE]
 - Database: system that allows to store and organize large amounts of data.
 - Structure: tables; columns, rows.
-- Platforms: postgre-sql, my-sql, maria-sql, microsoft-sql, microsoft-access, sqlite
+- Platforms: postgre-sql, my-sql, maria-sql, microsoft-sql, microsoft-access, sqlite.
 - SQL: programming language used to communicate with database. case insensitive.
 
 [SOFTWARE]
@@ -49,3 +49,10 @@
 - LIKE: pattern matching using wildcard characters. % sequence of characters. _ single character.
    - SELECT column FROM table WHERE value LIKE '...%'
    - ILIKE for case insensitive query.
+
+[GROUP]
+- aggregate functions. adds up data and combines them into a single value. MIN, MAX, AVG, SUM.
+- GROUP BY, divides the rows returned from SELECT statement into groups. for each group aggregation can be applied. duplicated values into one.
+   - SELECT column1, aggregate_function(column2) FROM table1 GROUP BY column1;
+- HAVING, filter grouped rows that don't satisfy a specified condition.
+   - SELECT column1, aggregate_function(column2) FROM table_name GROUP BY column1 HAVING condition;
