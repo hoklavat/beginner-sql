@@ -56,3 +56,22 @@
    - SELECT column1, aggregate_function(column2) FROM table1 GROUP BY column1;
 - HAVING, filter grouped rows that don't satisfy a specified condition.
    - SELECT column1, aggregate_function(column2) FROM table_name GROUP BY column1 HAVING condition;
+
+[AS]
+- rename columns or table selections with an alias.
+
+[JOIN]
+- relate data in one table to the corresponding data in other tables. combine multiple tables.
+- types: inner (default), outer, self.
+- Inner Join>> SELECT <select_list> FROM TableA A INNER JOIN TableB B ON A.Key = B.Key; -- intersection. records match in both tables.
+- Left Outer Join>> SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key = B.Key; -- A. select all A with matching records in B. missing sides from B are NULLed.
+- Left Outer Join with WHERE>> SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key = B.Key WHERE B.Key IS NULL; -- A/B. exclude non wanted records from B. only records in table A not in B.
+- Full Outer Join>> SELECT <select_list> FROM TableA A FULL OUTER JOIN TableB B ON A.Key = B.Key; -- union. set of all records in both tables. missing sides are NULLed.
+- Full Outer Join with WHERE>> SELECT <select_list> FROM TableA A FULL OUTER JOIN TableB B ON A.Key = B.Key WHERE A.Key IS NULL OR B.Key IS NULL; -- union/intersection. exclude non wanted records from both sides.
+- Right Outer Join>> SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key = B.Key; -- similar. table names are exchanged.
+- Right Outer Join with WHERE>> SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key = B.Key WHERE A.Key IS NULL; -- similar. table names are exchanged.
+
+[UNION]
+- combines result sets of two or more select statements into a single result set. remove duplicated rows by default.
+   - SELECt c1, c2 FROM t1 UNION c1, c2 FROM t2
+- UNION ALL: don't remove duplicated rows.

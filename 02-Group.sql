@@ -1,8 +1,8 @@
 -- 02-Group.sql
 -- Covered: MIN, MAX, AVG, SUM, ROUND
 
---1) Find average of amounts in payment table.
--- SELECT AVG(amount) FROM payment;
+-- 1) Find average of amounts in payment table.
+SELECT AVG(amount) FROM payment;
 -- SELECT ROUND(AVG(amount), 2) FROM payment; -- show only 2 decimal digits.
 
 -- 2) Select minimum amount from payment table.
