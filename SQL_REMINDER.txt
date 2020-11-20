@@ -1,4 +1,4 @@
-*** STRUCTURED QUERY LANGUAGE (SQL) ***
+*** STRUCTURED QUERY LANGUAGE ***
 
 [DATABASE]
 - Database: system that allows to store and organize large amounts of data.
@@ -73,5 +73,46 @@
 
 [UNION]
 - combines result sets of two or more select statements into a single result set. remove duplicated rows by default.
-   - SELECt c1, c2 FROM t1 UNION c1, c2 FROM t2
+   - SELECT c1, c2 FROM t1 UNION c1, c2 FROM t2
 - UNION ALL: don't remove duplicated rows.
+
+[TIMESTAMP]
+- data type used to retain time information.
+- day, dow, doy, epoch, hour, microseconds, millenium, miliseconds, minute, month, quarter, second, week, year
+- refer to postgre documentation for functions. most common function is extract.
+
+[MATHEMATICAL FUNCTIONS]
+- Operators: 
+(+): Addition
+(-): Subtraction
+(*): Multiplication
+(/): Division
+(%): Modulus
+(^): Exponential
+(|/): Square Root
+(||/): Cube Root
+(!): Factorial
+(!!): Factorial Prefix
+(@): Absolute Value
+(&): Bitwise AND
+(|): Bitwise OR
+(#): Bitwise XOR
+(~): Bitwise NOT
+(<<): Bitwise Shift Left
+(>>): Bitwise Shift Right
+- Functions: abs, cbrt, ceil, ceiling, degrees, div, exp, floor, ln, log, mod, pi, power, radians, round, sign, sqrt, trunc, width_bucket, random, setseed, acos, asin, atan, 
+atan2, cos, cot, sin, tan, ...
+
+[STRING FUNCTIONS]
+- string concatenation: s1 || s2
+- Functions: bit_length, char_length, lower, octet_length, overlay, position, substring, trim, upper, ascii, btrim, chr, concat, concat_ws, convert, convert_from, convert_to,
+decode, encode, format, initcap, left, length, lpad, ...
+
+[SUBQUERY]
+- query nested inside another query. allows to use multiple select statements.
+   - SELECT c1, c2, c3 FROM t1 WHERE c1 > (SELECT AVG(c1) FROM t1);
+
+[SELF JOIN]
+- join table to itself. combine rows with other rows in same table.
+- use alias to distinguish left table from right table.
+   - SELECT a1.c1 FROM t1 AS a1, t1 AS a2 WHERE a1.c2 = a2.c2 AND a2.c3 = ...;
