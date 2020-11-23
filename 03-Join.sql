@@ -17,7 +17,7 @@ SELECT payment_id AS my_payment_column FROM payment;
 -- SELECT payment_id, amount, first_name, last_name FROM payment INNER JOIN staff ON payment.staff_id = staff.staff_id;
 
 -- 5) Combine store_id column of inventory table and title column of film table by film_id column.
--- SELECT store_id, title  FROM inventory INNER JOIN film ON inventory.film_id = film.film_id;
+-- SELECT store_id, title FROM inventory INNER JOIN film ON inventory.film_id = film.film_id;
 -- WHERE store_id = 1;
 
 -- 6) Find total amount of each film in inventory of store with id 1 by listing with film titles.

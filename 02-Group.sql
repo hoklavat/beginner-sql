@@ -1,4 +1,4 @@
--- 02-Group.sql
+-- 02-Group
 -- Covered: MIN, MAX, AVG, SUM, ROUND
 
 -- 1) Find average of amounts in payment table.

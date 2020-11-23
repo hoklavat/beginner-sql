@@ -10,3 +10,10 @@
 02-Group
 03-Join
 04-Advanced
+05-Exercises
+06-Create
+07-Insert
+08-Update
+09-Delete
+10-Alter
+11-Drop

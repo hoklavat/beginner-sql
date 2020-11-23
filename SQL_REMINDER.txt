@@ -1,21 +1,21 @@
 *** STRUCTURED QUERY LANGUAGE ***
 
 [DATABASE]
-- Database: system that allows to store and organize large amounts of data.
-- Structure: tables; columns, rows.
-- Platforms: postgre-sql, my-sql, maria-sql, microsoft-sql, microsoft-access, sqlite.
-- SQL: programming language used to communicate with database. case insensitive.
+- database: system that allows to store and organize large amounts of data.
+- structure of database: tables containing columns (titles) and rows (values).
+- platform: postgre-sql, my-sql, maria-sql, microsoft-sql, microsoft-access, sqlite.
+- sql: programming language used to communicate with database. case insensitive.
 
 [SOFTWARE]
-- SQL Server: PostgreSQL (https://www.postgresql.org/)
-- Graphical User Interface: PGAdmin (https://www.pgadmin.org/)
+- sql server: PostgreSQL (https://www.postgresql.org/)
+- graphical user interface: PGAdmin (https://www.pgadmin.org/)
 
 [BASIC DATABASE OPERATIONS]
-- Create: PGAdmin >> Servers >> PostgreSQL >> Databases (right-click) >> Create >> Database >> name >> Save
-- Restore: Databases >> database (right-click) >> Restore >> select file >> Restore Options (Pre-Data/Post-Data/Data) >> Restore
-- Query: Databases >> database (right-click) >> Query Tool
-- Tables: Databases >> database >> Schemas >> Tables
-- Query: Databases >> database
+- Create: PGAdmin: Servers: PostgreSQL: Databases (right-click): Create: Database: name: Save
+- Restore: Databases: database (right-click): Restore: select file: Restore Options (Pre-Data/Post-Data/Data): Restore
+- Query: Databases: database (right-click): Query Tool
+- Tables: Databases: database: Schemas: Tables
+- Query: Databases: database
 
 [CONDITIONAL OPERATORS]
 - Equals (=)
@@ -30,49 +30,49 @@
 [SELECT]
 - query data from tables.
 - asterisk (*) denotes all columns.
-- SELECT column1, column2, ... FROM table1
-- SELECT DISTINCT column1, column2, ... FROM table1 -- don't select duplicated data.
-- SELECT column1, column2, ... FROM table1 WHERE conditions -- only select rows which satisfy conditions.
-- COUNT: number of input rows that match a specific condition.
-   - SELECT COUNT(*) from table1 -- count of rows in table.
-   - SELECT COUNT(DISTINCT column1) from table1 -- count of rows having non-duplicated column1 values.
+- SELECT c1, c2, ... FROM table1
+- SELECT DISTINCT c1, c2, ... FROM t1 -- don't select duplicated data.
+- SELECT c1, c2, ... FROM t1 WHERE conditions -- only select rows which satisfy conditions.
+- COUNT: number of input rows that match specific condition.
+   - SELECT COUNT(*) from t1 -- count of rows in table.
+   - SELECT COUNT(DISTINCT c1) from t1 -- count of rows having non-duplicated column1 values.
 - LIMIT: limit number of rows.
-- ORDER BY: sort the result set after query. sorts in ascending order by default.
-   - SELECT column1, column2 FROM table1 ORDER BY column1 ASC/DESC -- sort query result by column1 ascending/descending order.
-- BETWEEN: match a value against a range of values.
+- ORDER BY: sort result set after query. sorts in ascending order by default.
+   - SELECT c1, c2 FROM table1 ORDER BY c1 ASC/DESC -- sort query result by column1 ascending/descending order.
+- BETWEEN: match value against range of values.
    - value BETWEEN low AND high -> value >= low AND value <= high -- values between low and high.
    - value NOT BETWEEN low AND high -> value < low AND value > high -- values not between low and high.
-- IN: check if a value matches any value in a list of values.
-   - value IN (value1, value2, ...)
-   - value IN (SELECT value FROM table)
+- IN: check if value matches any value in list of values.
+   - value IN (v1, v2, ...)
+   - value IN (SELECT v FROM t)
    - ... NOT IN ...
 - LIKE: pattern matching using wildcard characters. % sequence of characters. _ single character.
-   - SELECT column FROM table WHERE value LIKE '...%'
+   - SELECT c FROM t WHERE v LIKE '...%'
    - ILIKE for case insensitive query.
 
 [GROUP]
-- aggregate functions. adds up data and combines them into a single value. MIN, MAX, AVG, SUM.
-- GROUP BY, divides the rows returned from SELECT statement into groups. for each group aggregation can be applied. duplicated values into one.
+- aggregate functions. adds up data and combines them into single value. MIN, MAX, AVG, SUM.
+- GROUP BY, divides rows returned from SELECT statement into groups. for each group aggregation can be applied. duplicated values into one.
    - SELECT column1, aggregate_function(column2) FROM table1 GROUP BY column1;
-- HAVING, filter grouped rows that don't satisfy a specified condition.
+- HAVING, filter grouped rows that don't satisfy specified condition.
    - SELECT column1, aggregate_function(column2) FROM table_name GROUP BY column1 HAVING condition;
 
 [AS]
-- rename columns or table selections with an alias.
+- rename columns or table selections with alias.
 
 [JOIN]
-- relate data in one table to the corresponding data in other tables. combine multiple tables.
+- relate data in one table to corresponding data in other tables. combine multiple tables.
 - types: inner (default), outer, self.
-- Inner Join>> SELECT <select_list> FROM TableA A INNER JOIN TableB B ON A.Key = B.Key; -- intersection. records match in both tables.
-- Left Outer Join>> SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key = B.Key; -- A. select all A with matching records in B. missing sides from B are NULLed.
-- Left Outer Join with WHERE>> SELECT <select_list> FROM TableA A LEFT JOIN TableB B ON A.Key = B.Key WHERE B.Key IS NULL; -- A/B. exclude non wanted records from B. only records in table A not in B.
-- Full Outer Join>> SELECT <select_list> FROM TableA A FULL OUTER JOIN TableB B ON A.Key = B.Key; -- union. set of all records in both tables. missing sides are NULLed.
-- Full Outer Join with WHERE>> SELECT <select_list> FROM TableA A FULL OUTER JOIN TableB B ON A.Key = B.Key WHERE A.Key IS NULL OR B.Key IS NULL; -- union/intersection. exclude non wanted records from both sides.
-- Right Outer Join>> SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key = B.Key; -- similar. table names are exchanged.
-- Right Outer Join with WHERE>> SELECT <select_list> FROM TableA A RIGHT JOIN TableB B ON A.Key = B.Key WHERE A.Key IS NULL; -- similar. table names are exchanged.
+- Inner Join>> SELECT <select_list> FROM TableA INNER JOIN TableB B ON A.Key = B.Key; -- intersection. records match in both tables.
+- Left Outer Join>> SELECT <select_list> FROM TableA LEFT JOIN TableB B ON A.Key = B.Key; -- A. select all with matching records in B. missing sides from B are NULLed.
+- Left Outer Join with WHERE>> SELECT <select_list> FROM TableA LEFT JOIN TableB B ON A.Key = B.Key WHERE B.Key IS NULL; -- A/B. exclude non wanted records from B. only records in table not in B.
+- Full Outer Join>> SELECT <select_list> FROM TableA FULL OUTER JOIN TableB B ON A.Key = B.Key; -- union. set of all records in both tables. missing sides are NULLed.
+- Full Outer Join with WHERE>> SELECT <select_list> FROM TableA FULL OUTER JOIN TableB B ON A.Key = B.Key WHERE A.Key IS NULL OR B.Key IS NULL; -- union/intersection. exclude non wanted records from both sides.
+- Right Outer Join>> SELECT <select_list> FROM TableA RIGHT JOIN TableB B ON A.Key = B.Key; -- similar. table names are exchanged.
+- Right Outer Join with WHERE>> SELECT <select_list> FROM TableA RIGHT JOIN TableB B ON A.Key = B.Key WHERE A.Key IS NULL; -- similar. table names are exchanged.
 
 [UNION]
-- combines result sets of two or more select statements into a single result set. remove duplicated rows by default.
+- combines result sets of two or more select statements into single result set. remove duplicated rows by default.
    - SELECT c1, c2 FROM t1 UNION c1, c2 FROM t2
 - UNION ALL: don't remove duplicated rows.
 
@@ -116,3 +116,71 @@ decode, encode, format, initcap, left, length, lpad, ...
 - join table to itself. combine rows with other rows in same table.
 - use alias to distinguish left table from right table.
    - SELECT a1.c1 FROM t1 AS a1, t1 AS a2 WHERE a1.c2 = a2.c2 AND a2.c3 = ...;
+
+[DATA TYPES]
+- Boolean: boolean/bool, true(1,yes,y,t)/false(0,no,n,f)/null, 1
+- Character: char
+  - fixed length character string: char(n). pad space rest.
+  - variable length character string: varchar(n). no pad space.
+- Number: integer, floating-point
+  - small integer: smallint. 2-byte signed integer.
+  - integer: int. 4-byte signed integer.
+  - serial: same as integer. populate value automatically.
+  - float(n): floating point number with precision at least n. 8-byte.
+  - real/float8: double precision 8-byte floating-point number.
+  - numeric/numeric(p, s): real number with p digits with s number after decimal point.
+- Temporal: date, time, timestamp, interval, timestampz.
+- Special:  
+- Array: 
+
+[KEYS]
+- primary key: column or group of columns that is used to identify row uniquely in table. only one primary key.
+  -  CREATE TABLE table_name(column_name data_type PRIMARY KEY, column_name data_type, ...);
+- foreign key: field or group of fields in table that uniquely identifies row in another table. primary key of other table. multiple foreign keys.
+  - referencing/child table: table that contains foreign key.
+  - referenced/parent table: table to which foreign key references.
+  - referential integrity: values must match in both parent and child tables.
+
+[CREATE]
+- creating new table.
+  - CREATE TABLE table_name (column_name TYPE column_constraint, table_constraint) INHERITS existing_table_name;
+- column constraints
+  - NOT NULL: value cannot be null.
+  - UNIQUE: value of column must be unique across whole table.
+  - PRIMARY KEY: combination of NOT NULL and UNIQUE.
+  - CHECK: check condition when you insert or update data.
+  - REFERENCES: constrains value of column that exists in column in another table.
+- table constraints
+  - UNIQUE(column_list): force value stored in columns listed inside paranthesis to be unique.
+  - PRIMARY KEY(column_list): define primary key that consists of multiple columns.
+  - CHECK(condition): check condition when inserting or updating data.
+  - REFERENCES: constrain value stored in column that must exist in column in another table.
+
+[INSERT]
+- insert new rows into table.
+  - INSERT INTO t1(c1, c2, ...) VALUES(v1, v2, ...), (v3, v4, ...), ...; -- insert multiple rows with values.
+  - INSERT INTO t1 SELECT c1, c2, ... FROM t2 WHERE condition; -- insert rows from another table where condition satisfies.
+
+[UPDATE]
+- update existing rows in table.
+  - UPDATE t1 SET c1=v1, c2=v2, ... WHERE condition; -- update column values of existing of rows c1, c2, ... in table t1.
+
+[DELETE]
+- delete rows of table. returns number of rows deleted.
+  - DELETE FROM t1 WHERE condition; 
+
+[ALTER]
+- change existing table structure.
+  - ALTER TABLE table_name action;
+- actions:
+  - ADD COLUMN: add new column to table.
+  - DROP COLUMN: remove existing column from table.
+  - RENAME COLUMN: rename existing column in table.
+  - ADD CONSTRAINT: add check constraint to column.
+  - RENAME TO: rename table.
+
+[DROP]
+- remove table from database. optional 'IF EXISTS' statement avoids error if no table exists with given name in database.
+  - DROP TABLE [IF EXISTS] t1;
+- RESTRICT: refuse to drop table if there is any object dependent on it. set by default.
+- CASCADE: refuse to drop table if there is any constraint or dependency on it.
