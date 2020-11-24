@@ -145,8 +145,8 @@ decode, encode, format, initcap, left, length, lpad, ...
 - creating new table.
   - CREATE TABLE table_name (column_name TYPE column_constraint, table_constraint) INHERITS existing_table_name;
 - column constraints
-  - NOT NULL: value cannot be null.
-  - UNIQUE: value of column must be unique across whole table.
+  - NOT NULL: value of column cannot be null.
+  - UNIQUE: value of column must be unique across whole table. check if value is already in table.
   - PRIMARY KEY: combination of NOT NULL and UNIQUE.
   - CHECK: check condition when you insert or update data.
   - REFERENCES: constrains value of column that exists in column in another table.

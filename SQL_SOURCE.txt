@@ -3,7 +3,7 @@
 [SOFTWARE]
 - SQL Server: PostgreSQL (https://www.postgresql.org/)
 - Graphical User Interface: PGAdmin (https://www.pgadmin.org/)
-- Sample Database: dvdrental.tar
+- Sample Database: dvdrental.tar, exercises.tar
 
 [SOURCE LIST]
 01-Select
@@ -17,3 +17,7 @@
 09-Delete
 10-Alter
 11-Drop
+12-Check
+13-NotNull
+14-Unique
+15-Exercises
