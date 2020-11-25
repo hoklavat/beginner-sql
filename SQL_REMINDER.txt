@@ -184,3 +184,13 @@ decode, encode, format, initcap, left, length, lpad, ...
   - DROP TABLE [IF EXISTS] t1;
 - RESTRICT: refuse to drop table if there is any object dependent on it. set by default.
 - CASCADE: refuse to drop table if there is any constraint or dependency on it.
+
+[VIEW]
+- database object that is of a stored query.
+- accessible as virtual table.
+  - CREATE VIEW v1 AS query;
+
+[PYTHON LIBRARY]
+- pyscopg2 library allows python code to interact with postgreSQL databases.
+- install: pip install psycopg2 
+- tutorial: https://wiki.postgresql.org/wiki/Psycopg2_Tutorial, https://www.psycopg.org/docs/index.html
